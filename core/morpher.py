@@ -182,13 +182,13 @@ def face_merge(dst_img, src_img, out_img,
     dst_img = transformation_points(src_img, src_matrix[core.FACE_POINTS],
                                     dst_img, dst_matrix[core.FACE_POINTS])
 
-    trans_file = 'tmp/' + str(int(time.time() * 1000)) + '.jpg'
+    trans_file = './tmp/' + str(int(time.time() * 1000)) + '.jpg'
     cv2.imwrite(trans_file, dst_img)
     _, dst_points, _ = core.face_points(trans_file)
 
     dst_img = morph_img(src_img, src_points, dst_img, dst_points, alpha)
 
-    morph_file = 'tmp/' + str(int(time.time() * 1000)) + '.jpg'
+    morph_file = './tmp/' + str(int(time.time() * 1000)) + '.jpg'
     cv2.imwrite(morph_file, dst_img)
     dst_matrix, dst_points, face_area = core.face_points(morph_file)
 

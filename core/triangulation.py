@@ -25,7 +25,10 @@ def measure_triangle(image, points):
     sub_div = cv2.Subdiv2D(rect)
 
     for p in points:
-        sub_div.insert(p)
+        try:
+            sub_div.insert(p)
+        except:
+            pass
 
     triangle_list = sub_div.getTriangleList()
 
